@@ -61,9 +61,9 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+    return Math.floor(Math.random()*3);
 
 }
 
@@ -80,19 +80,36 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, number){
+  let home = 0;
+  let away = 0;
+  for (let i = 1; i <= number; i++){
+      home += callback();
+      away += callback();
+  }
+  return {
+    Home: home,
+    Away: away
+  }
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning, awayScore, homeScore) {
+    if(inning === 1){
+      console.log(`1st inning: ${awayScore} - ${homeScore}`);
+    } else if(inning === 2){
+      console.log(`2nd inning: ${awayScore} - ${homeScore}`);
+    } else if(inning === 3){
+      console.log(`3rd inning: ${awayScore} - ${homeScore}`);
+    } else {
+      console.log(`${inning}th inning: ${awayScore} - ${homeScore}`);
+    }
+    return `Final Score: Away: ${awayScore[]} - Home: ${homeScore[]}`;   //TODO come back to this
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
@@ -138,10 +155,20 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, inningScore, numInnings) {
+  let homeScore = 0
+  let awayScore = 0
+  for(let i = 1; i <= numInnings; i++){
+    let homeRuns = inning();
+    homeScore = homeScore + homeRuns;
+    let awayRuns = inning();
+    awayScore = awayScore + awayRuns;
+    inningScore(i, awayScore, homeScore);
+  }
+  let final = {Home: homeScore, Away: awayScore};
+    return final;
 }
-
+console.log(scoreboard(inning, getInningScore, 9))
 
 
 
