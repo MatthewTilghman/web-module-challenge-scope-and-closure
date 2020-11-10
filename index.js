@@ -109,7 +109,7 @@ function getInningScore(inning, awayScore, homeScore) {
     } else {
       console.log(`${inning}th inning: ${awayScore} - ${homeScore}`);
     }
-    return `Final Score: Away: ${awayScore[]} - Home: ${homeScore[]}`;   //TODO come back to this
+    return `Final Score: Away: ${awayScore} - Home: ${homeScore}`;   //TODO come back to 
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:

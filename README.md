@@ -42,7 +42,7 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences).  Function has acces to its outer function even after it's returned it?
 2. Study the following code, then answer the questions below.
 
 ```js
